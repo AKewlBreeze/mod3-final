@@ -1,13 +1,21 @@
-import React, { Component } from 'react';
-import './App.css';
-import Users from '../../containers/Users'
+import React, { Component } from "react";
+import "./App.css";
+import Quizzes from "../../containers/Quizzes.js";
+import * as actions from "../../actions";
 
 class App extends Component {
+  componentDidMount() {
+    fetch("/quizzes").then(resp => resp.json()).then(quizzes => {
+      console.log(quizzes);
+      this.props.quizzesLoaded(quizzes);
+    });
+  }
+
   render() {
     return (
       <div className="App">
         <h1>Welcome To Quizzer</h1>
-        <Users />
+        <Quizzes quizzesLoaded={actions.quizzesLoaded} quizzes={this.props.quizzes} />
       </div>
     );
   }
