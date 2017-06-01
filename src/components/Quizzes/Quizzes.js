@@ -16,10 +16,3 @@ export const Quizzes = ({ quizzes, addQuiz }) => {
     </section>
   )
 }
-
-
-// go over the quiz.question and follow the same pattern from creating quizz
-// define a quiz component w/inputs
-// get question titles
-// then get question answers
-// actions names based on what the state changes to when actions occur
